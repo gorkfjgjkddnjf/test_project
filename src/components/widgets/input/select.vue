@@ -11,11 +11,11 @@ export default {
             default(){
                 return []
             }
-        }
+        },
     },
     data(){
         return{
-
+            selected: null
         }
     },
 

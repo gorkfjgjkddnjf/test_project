@@ -1,13 +1,13 @@
 <template>
     <b-form-group :label="label" :label-for="labelFor">
-        <b-form-input :id="labelFor" type="email" :required="required" :placeholder="placeholder" size="lg"></b-form-input>
+        <b-form-input :id="labelFor" type="text" :required="required" :placeholder="placeholder" size="lg"></b-form-input>
     </b-form-group>
 </template>
 
 <script>
 
 export default {
-    name: 'input-email',
+    name: 'input-text',
     props:{
         label:{
             type: String,

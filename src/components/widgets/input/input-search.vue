@@ -1,27 +1,21 @@
 <template>
-    <b-form-group :label="label" :label-for="labelFor">
-        <b-form-input :id="id" type="search" :required="required" :placeholder="placeholder"></b-form-input>
-    </b-form-group>
+    <b-input-group class="search-wrapper">
+        <b-form-input :id="id" type="search" :placeholder="placeholder"></b-form-input>
+        <btnSearch/>
+    </b-input-group>
 </template>
 
 <script>
 
+import btnSearch from '../button/button-search'
+
 export default {
     name: 'input-search',
+    components:{
+        btnSearch
+    },
     props:{
-        label:{
-            type: String,
-            default(){
-                return 'label'
-            }
-        },
         id:{
-            type: String,
-            default(){
-                return 'input'
-            }
-        },
-        labelFor:{
             type: String,
             default(){
                 return 'input'
@@ -33,16 +27,12 @@ export default {
                 return ''
             }
         },
-        required:{
-            type: Boolean,
-            default(){
-                return false
-            }
-        },
+
     }
 }
 </script>
 
-<style lang="sass">
-
+<style lang="sass" scoped>
+.search-wrapper
+    display: flex
 </style>

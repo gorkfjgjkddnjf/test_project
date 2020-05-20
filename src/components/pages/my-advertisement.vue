@@ -84,13 +84,15 @@
             </b-col>
         </b-form-row>
         <b-row class="justify-content-center">
-            <h2>Актуальные объявления</h2>
+            <h2>Мои объявления</h2>
         </b-row>
         <b-row>
-            <tcard
-                v-for="item in ADVERTISEMENT" :key="item.id"
-                :advertisement_data="item"
-            />
+            <b-col cols="12">
+                <tcard
+                    v-for="item in ADVERTISEMENT" :key="item.id"
+                    :advertisement_data="item"
+                />
+            </b-col>
         </b-row>
         <b-row>
             <b-col cols="12">
@@ -104,7 +106,7 @@
 
 import inputSearch from '../widgets/input/input-search'
 import tselect from '../widgets/input/select'
-import tcard from '../widgets/card/card-advertisement'
+import tcard from '../widgets/card/card-my-advertisement'
 import {mapActions, mapGetters} from 'vuex'
 
 import popup from '../popup/popup'
@@ -146,6 +148,11 @@ export default {
                 {value: '4', text: 'Хобби и отдых'},
                 {value: '5', text: 'услуги'},
                 {value: '6', text: 'Бытовая техника'}
+            ],
+            status:[
+                {value: null, text: 'Статус'},
+                {value: '1', text: 'Активное'},
+                {value: '2', text: 'Закрытое'},
             ],
             isVisibleLogIn: false,
             isVisibleAdd: false

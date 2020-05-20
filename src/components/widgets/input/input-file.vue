@@ -1,13 +1,13 @@
 <template>
     <b-form-group :label="label" :label-for="labelFor">
-        <b-form-input :id="labelFor" type="email" :required="required" :placeholder="placeholder" size="lg"></b-form-input>
+        <b-form-file :id="id" type="file" :required="required" :placeholder="placeholder" accept=".jpg,.jpeg,.png"></b-form-file>
     </b-form-group>
 </template>
 
 <script>
 
 export default {
-    name: 'input-email',
+    name: 'input-file',
     props:{
         label:{
             type: String,
@@ -15,12 +15,12 @@ export default {
                 return 'label'
             }
         },
-        // id:{
-        //     type: String,
-        //     default(){
-        //         return 'input'
-        //     }
-        // },
+        id:{
+            type: String,
+            default(){
+                return 'input'
+            }
+        },
         labelFor:{
             type: String,
             default(){

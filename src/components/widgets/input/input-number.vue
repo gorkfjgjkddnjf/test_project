@@ -1,13 +1,16 @@
 <template>
-    <b-form-group :label="label" :label-for="labelFor">
-        <b-form-input :id="labelFor" type="email" :required="required" :placeholder="placeholder" size="lg"></b-form-input>
-    </b-form-group>
+    <div  class="test">
+        <b-form-group :label="label" :label-for="labelFor">
+            <b-form-input :id="id" type="number" :required="required" :placeholder="placeholder"></b-form-input>
+        </b-form-group>
+        <p class="mb-4 px-2">руб</p>
+    </div>
 </template>
 
 <script>
 
 export default {
-    name: 'input-email',
+    name: 'input-file',
     props:{
         label:{
             type: String,
@@ -15,12 +18,12 @@ export default {
                 return 'label'
             }
         },
-        // id:{
-        //     type: String,
-        //     default(){
-        //         return 'input'
-        //     }
-        // },
+        id:{
+            type: String,
+            default(){
+                return 'input'
+            }
+        },
         labelFor:{
             type: String,
             default(){
@@ -43,6 +46,8 @@ export default {
 }
 </script>
 
-<style lang="sass">
-
+<style lang="sass" scoped>
+.test
+    display: flex
+    align-items: flex-end
 </style>
