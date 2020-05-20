@@ -13,30 +13,19 @@
                     btnValue="Закрыть"
                 />
             </b-col>
+
             <b-col cols="12" md="3" class="test mb-3">
                 <p class="mb-0"><span class="font-weight-bold">Статус:</span> {{advertisement_data.status}}</p>                
             </b-col>
-                <b-col cols="12" md="3" lg="2">
-                    <p class="font-weight-bold">{{advertisement_data.date}}</p>
-                </b-col>
-                <b-col cols="12" md="9" class="test">
-                    <p class=""><span class="font-weight-bold">Категория:</span> {{advertisement_data.category}}</p>
-                    <p class="pl-3"><span class="font-weight-bold">Город:</span> {{advertisement_data.city}}</p>
-                </b-col>
 
-
-        </b-row>
-        <!-- <b-row class="px-3">
-            <b-col cols="12" md="3">
+            <b-col cols="12" md="3" lg="2">
                 <p class="font-weight-bold">{{advertisement_data.date}}</p>
             </b-col>
-            <b-col cols="12" md="3">
+            <b-col cols="12" md="9" class="test">
                 <p class=""><span class="font-weight-bold">Категория:</span> {{advertisement_data.category}}</p>
+                <p class="pl-3"><span class="font-weight-bold">Город:</span> {{advertisement_data.city}}</p>
             </b-col>
-            <b-col cols="12" md="3">    
-                <p class=""><span class="font-weight-bold">Город:</span> {{advertisement_data.city}}</p>
-            </b-col>
-        </b-row> -->
+        </b-row>
         <b-row>
             <b-col>               
                 <p class="px-3">{{advertisement_data.description}}</p>
