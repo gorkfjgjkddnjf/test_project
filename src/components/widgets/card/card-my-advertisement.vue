@@ -1,16 +1,27 @@
 <template>
     <div class="shadow rounded mb-5">
+
+        <popups
+            :editing="editing"
+            @close="close"
+            :item="item"
+            @test="test"
+        />
+
+        <carousel
+            :image="advertisement_data.img"
+            @closeCarousel="closeCarousel"
+            v-if="isVisibleCarousel"
+        />
+
         <b-row class="px-3 pt-3">
             <b-col cols="12" md="8" class="test mb-3">
-                <h2 v-if="!advertisement_data.editing">{{advertisement_data.title}}</h2>
-                <input v-else class="item-edit px-3 py-2" type="text" 
-                   v-model="advertisement_data.title"
-                   @keyup.enter="doneEdit(advertisement_data)"
-                >
-                <b-icon icon="pen" font-scale="2" @click="itemEdit(advertisement_data)"></b-icon>
+                <h2>{{advertisement_data.title}}</h2>
+                <b-icon v-if="advertisement_data.status == 'Активное'" icon="pen" font-scale="2" @click="itemEdit(advertisement_data)"></b-icon>
                 <btn v-if="advertisement_data.status == 'Активное'" class="mx-3"
                     size="md"
                     btnValue="Закрыть"
+                    @action="closeAddvertisement()"
                 />
             </b-col>
 
@@ -32,7 +43,9 @@
             </b-col>
             <b-col cols="12" md="4">
                 <p class="px-3 pl-md-0"><span class="font-weight-bold">Цена:</span> {{advertisement_data.price}}</p>
-                <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img>
+                <b-img :src="advertisement_data.img[0].img" fluid alt="Responsive image"
+                    @click="showCarousel"
+                ></b-img>
             </b-col>
         </b-row>
     </div>
@@ -41,15 +54,22 @@
 <script>
 
 import btn from '../button/button-main'
+import popups from '../../popup/popup-wrapper'
+import carousel from '../card/carousel'
 
 export default {
     name: 'card-advertisement',
     components:{
-        btn
+        btn,
+        popups,
+        carousel
     },
     data(){
         return{
-            beforeEditName: null
+            beforeEditName: null,
+            editing: false,
+            item: null,
+            isVisibleCarousel: false
         }
     },
     props:{
@@ -61,27 +81,33 @@ export default {
         },
     },
     methods:{
+        close(){
+            this.editing = false
+        },
         itemEdit(item){
-            this.beforeEditName = item.title
-            //this.beforeEditDes = item.description
-            item.editing = true
+            this.item = item
+            this.editing = true
         },
         doneEdit(item){
             item.editing = false
+        },
+        closeAddvertisement(){
+            this.$emit('closeAddvertisement')
+        },
+        showCarousel(){
+            this.isVisibleCarousel = true
+        },
+        closeCarousel(){
+            this.isVisibleCarousel = false
+        },
+        test(){
+            console.log(4)
+            this.$emit('confirm')
         }
     }
 }
 </script>
 
 <style lang="sass" scoped>
-.test
-    display: flex
-    align-items: center
 
-.item-edit
-    width: 100%
-    border: none
-    border-bottom: 1px solid #c4c4c4
-    &:focus
-        outline: none
 </style>

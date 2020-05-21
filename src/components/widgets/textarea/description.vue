@@ -1,6 +1,13 @@
 <template>
     <b-form-group :label="label" :label-for="labelFor">
-        <b-form-textarea :id="labelFor" :placeholder="placeholder" :required="required" :rows="rows"></b-form-textarea>
+        <b-form-textarea 
+            :id="labelFor" 
+            :placeholder="placeholder" 
+            :required="required" 
+            :rows="rows"
+            :value="value"
+        >   
+        </b-form-textarea>
     </b-form-group>
 </template>
 
@@ -37,6 +44,12 @@ export default {
             type: Boolean,
             default(){
                 return false
+            }
+        },
+        value:{
+            type: String,
+            default(){
+                return ''
             }
         },
     }

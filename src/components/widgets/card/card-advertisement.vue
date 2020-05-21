@@ -1,8 +1,10 @@
 <template>
-    <b-col cols="12" md="6" xl="4">
-        <b-card
+    <b-col cols="12" md="6" xl="4" >
+        <router-link class="advertisement" :to="{name: 'this-advertisement', params:{item: advertisement_data}}">
+            <b-card 
+            @click="getUser"
             :title="advertisement_data.title"
-            img-src="https://picsum.photos/600/300/?image=25"
+            :img-src="advertisement_data.img[0].img"
             img-alt="Image"
             img-top
             class="mx-2 my-3"
@@ -14,10 +16,13 @@
                 {{advertisement_data.date}}
             </b-card-text>
         </b-card>
+        </router-link>
     </b-col>
 </template>
 
 <script>
+
+import {mapGetters, mapActions} from 'vuex'
 
 export default {
     name: 'card-advertisement',
@@ -31,6 +36,19 @@ export default {
                 return{}
             }
         },
+    },
+    computed:{
+        ...mapGetters([
+            'USER'
+        ]),
+    },
+    methods:{
+        getUser(){
+            this.GET_USER(this.advertisement_data.user_id)
+        },
+        ...mapActions([
+            'GET_USER'
+        ])
     }
 }
 </script>

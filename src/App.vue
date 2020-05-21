@@ -1,21 +1,17 @@
 <template>
   <div id="app">
-
-    <!-- <test1/> -->
-    <test/>
+    <mainBlock/>
   </div>
 </template>
 
 <script>
 
-import test from './components/pages/my-advertisement'
-//import test1 from './components/pages/user-profile'
+import mainBlock from './components/main-block'
 
 export default {
   name: 'App',
   components: {
-    test,
-    //test1,
+    mainBlock
   }
 }
 </script>

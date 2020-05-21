@@ -1,5 +1,5 @@
 <template>
-    <b-button :block="block" :id="id" :variant="variant" :size="size">{{btnValue}}</b-button>
+    <b-button :block="block" :id="id" :variant="variant" :size="size" @click="action">{{btnValue}}</b-button>
 </template>
 
 <script>
@@ -37,6 +37,11 @@ export default {
                 return 'lg'
             }
         },
+    },
+    methods:{
+        action(){
+           this.$emit('action') 
+        }
     }
 }
 </script>

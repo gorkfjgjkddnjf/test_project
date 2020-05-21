@@ -1,7 +1,13 @@
 <template>
     <div  class="test">
         <b-form-group :label="label" :label-for="labelFor">
-            <b-form-input :id="id" type="number" :required="required" :placeholder="placeholder"></b-form-input>
+            <b-form-input 
+            :id="labelFor" 
+            type="number" 
+            :required="required" 
+            :placeholder="placeholder"
+            :value="value"
+        ></b-form-input>
         </b-form-group>
         <p class="mb-4 px-2">руб</p>
     </div>
@@ -18,16 +24,10 @@ export default {
                 return 'label'
             }
         },
-        id:{
-            type: String,
-            default(){
-                return 'input'
-            }
-        },
         labelFor:{
             type: String,
             default(){
-                return 'input'
+                return 'input-number'
             }
         },
         placeholder:{
@@ -40,6 +40,12 @@ export default {
             type: Boolean,
             default(){
                 return false
+            }
+        },
+        value:{
+            type: Number,
+            default(){
+                return 0
             }
         },
     }

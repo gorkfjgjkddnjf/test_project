@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import main from '../components/main-block'
+import myAdvertisementn from '../components/pages/my-advertisement'
 import userProfile from '../components/pages/user-profile'
+import advertisement from '../components/pages/advertisement'
+import thisAdvertisement from '../components/pages/this-advertisement'
 
 Vue.use(Router);
 
@@ -9,8 +11,8 @@ let router = new Router({
     routes:[      
         {
             path:'/',
-            name: 'main',
-            component: main,
+            name: 'advertisement',
+            component: advertisement,
             // meta:{
             //     requiresAuth: true
             // }
@@ -20,10 +22,21 @@ let router = new Router({
             name: 'user-profile',
             component: userProfile,
         },
+        {
+            path: '/my-advertisement',
+            name: 'my-advertisement',
+            component: myAdvertisementn,
+        },
+        {
+            path: '/this-advertisement',
+            name: 'this-advertisement',
+            component: thisAdvertisement,
+            props: true,
+        },
 
-    ]
+    ],
+
 });
-
 // router.beforeEach((to, from, next) => {
 //     if(to.matched.some(record => record.meta.requiresAuth)){
 //         if(store.getters.IS_LOGGED){
@@ -35,5 +48,7 @@ let router = new Router({
 //         next()
 //     }
 // })
+
+
 
 export default router

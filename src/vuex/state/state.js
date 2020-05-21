@@ -1,3 +1,5 @@
 export default {
-    advertisement: null
+    advertisement: null,
+    user: null,
+    userAdvertisement: null
 }

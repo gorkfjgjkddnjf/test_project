@@ -9,7 +9,7 @@
             </b-col>
             <b-col sm="9" lg="6">
                 <b-form>
-                    <inputText
+                    <inputMain
                         label="Имя"
                         labelFor="name"
                     />
@@ -17,12 +17,12 @@
                     <selectCity id="select"
                     
                     />
-                    <inputText
+                    <inputMain
                         label="Телефон"
                         labelFor="tel"
                     />
                     <description
-                        label="о себе"
+                        label="О себе"
                     />
                 </b-form>
                 <btnSave
@@ -36,7 +36,7 @@
 <script>
 
 import description from '../widgets/textarea/description'
-import inputText from '../widgets/input/input-text'
+import inputMain from '../widgets/input/input-main'
 import btnSave from '../widgets/button/button-main'
 import selectCity from '../widgets/input/select'
 
@@ -45,7 +45,7 @@ export default {
     components:{
         description,
         btnSave,
-        inputText,
+        inputMain,
         selectCity
     }
 

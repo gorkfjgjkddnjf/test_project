@@ -1,6 +1,6 @@
 <template>
 
-<div class="popup-wrapper">
+<div class="popup-wrapper" ref="popup-wrapper">
     <b-col cols="11" md="8" lg="6" xl="4" class="t-popup shadow">
         <div class="popup-head mb-4 pt-3">
             <slot name="head"></slot>
@@ -11,6 +11,7 @@
         </div>
         <b-row class="justify-content-center pb-4">
             <btn
+                @action="confirm"
                 :btnValue="btnOk"
             />
         </b-row>
@@ -45,8 +46,20 @@ export default {
     },
     methods:{
         confirm(){
+            console.log(3)
             this.$emit('confirm')
+        },
+        close(){
+            this.$emit('close')
         }
+    },
+    mounted(){
+        let vm = this
+        document.addEventListener('click', function(item){
+            if(item.target === vm.$refs['popup-wrapper']){
+                vm.close()
+            }
+        })
     }
 }
 
@@ -68,16 +81,16 @@ export default {
     border-radius: 15px
 
 
-.popup-wrapper
-    position: fixed
-    display: flex
-    justify-content: center
-    align-items: center
-    right: 0
-    left: 0
-    top: 0
-    bottom: 0
-    background: rgba(0, 0, 0, .25)
-    z-index: 1000
+// .popup-wrapper
+//     position: fixed
+//     display: flex
+//     justify-content: center
+//     align-items: center
+//     right: 0
+//     left: 0
+//     top: 0
+//     bottom: 0
+//     background: rgba(0, 0, 0, .25)
+//     z-index: 1000
 
 </style>
