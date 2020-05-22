@@ -1,17 +1,17 @@
 <template>
     <b-container>
         <b-form-row>
-            <b-col cols="4">
+            <b-col cols="12" md="4" class="mb-3">
                 <tselect
                     :options="category"
                 />
             </b-col>
-            <b-col cols="4">
+            <b-col cols="12" md="4" class="mb-3">
                 <tselect
 
                 />
             </b-col>
-            <b-col>
+            <b-col md="4" class="mb-3">
                 <inputSearch
                     
                 />

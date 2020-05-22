@@ -31,18 +31,20 @@
                     />
                     </b-col>
                 </b-row>
-                <div v-else>
+                <b-row v-else>
+                    <b-col cols="12" md="4" class="mb-3 mb-md-0">
                     <btn
                         @action="logIn"
-                        class=""
                         btnValue="Войти"
                     />
+                    </b-col>
+                    <b-col cols="12" md="8" class="mb-3 mb-md-0">
                     <btn
                         @action="logUp"
-                        class="ml-4"
                         btnValue="Зарегистрироваться"
                     />
-                </div>
+                    </b-col>
+                </b-row>
             </b-navbar-nav>
         </b-collapse>
     </b-navbar>
