@@ -9,21 +9,28 @@
 
         <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav class="ml-auto">
-                <div v-if="isLogged">
+                <b-row v-if="isLogged" class="justify-content-md-end">
+                    <b-col cols="12" md="3" class="mb-3 mb-md-0 mr-3">
                     <btn
                         style="width: 8em; white-space: pre-line;"
-                        class="py-0 mr-3"
+                        class="py-0"
                         btnValue="Добавить объявление"
                         @action="addAdvertisement"
                     />
-                    <b-link :to="{name: 'my-advertisement'}" class="ml-2 mr-3">Мои объявления</b-link>
-
-                    <b-link :to="{name: 'user-profile'}" class="mx-2">Личный кабинет</b-link>
+                    </b-col>
+                    <b-col cols="12" md="3" class="mb-3 mb-md-0 text-md-center test">
+                    <b-link :to="{name: 'my-advertisement'}">Мои объявления</b-link>
+                    </b-col>
+                    <b-col cols="12" md="3" class="mb-3 mb-md-0 text-md-center test">
+                    <b-link :to="{name: 'user-profile'}" class="">Личный кабинет</b-link>
+                    </b-col>
+                    <b-col cols="12" md="2" class="mb-3 mb-md-0">
                     <btn
-                        class="h-100 ml-3"
+                        class="h-100"
                         btnValue="Выйти"
                     />
-                </div>
+                    </b-col>
+                </b-row>
                 <div v-else>
                     <btn
                         @action="logIn"

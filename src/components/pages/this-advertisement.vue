@@ -2,6 +2,7 @@
   <b-container>
       <b-row class="mt-md-5 pt-md-5 justify-content-between">
             <b-col cols="12" md="8">
+                <b-breadcrumb :items="items"></b-breadcrumb>
                 <b-row class="mb-3">
                     <b-col cols="12" md="8">
                         <h2>{{item.title}}</h2>
@@ -64,6 +65,24 @@ export default {
             default(){
                 return {}
             }
+        }
+    },
+    data(){
+        return{
+            items: [
+                {
+                    text: 'Объявления',
+                    to: { name: 'advertisement' }
+                },
+                {
+                    text: this.item.category,
+                    to: { name: 'advertisement' }
+                },
+                {
+                    text: this.item.title,
+                    active: true
+                }
+            ]
         }
     },
     computed:{
